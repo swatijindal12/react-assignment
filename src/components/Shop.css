@@ -1,0 +1,60 @@
+.column {
+  margin-left: 3rem;
+}
+
+.column p {
+  font-size: 1.1rem;
+}
+
+.column h1,
+.column-1 h1 {
+  font-size: 3rem;
+  top: 0;
+  margin-bottom: 7rem;
+}
+
+.column p:nth-last-child(1),
+.column p:nth-last-child(2),
+.column p:nth-last-child(3) {
+  opacity: 0.5;
+}
+
+.column-1 {
+  margin-bottom: 10.5rem;
+  margin-right: 4rem;
+}
+
+.column-1 p {
+  margin-top: 6rem;
+  font-size: 1.5rem;
+}
+
+.dot-icon {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1.5rem 2rem;
+}
+
+.dot-icon img {
+  text-align: center;
+  align-items: center;
+  margin-left: 55rem;
+}
+
+button {
+  font-size: 1.1rem;
+  background-color: white;
+  padding: 1rem 1.5rem;
+  margin-right: 10rem;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 10rem;
+  margin-bottom: 5rem;
+  /* border: 2px solid orange; */
+}
