@@ -2,30 +2,36 @@ import React from 'react'
 import './Styles.css'
 import { shopData } from './shopData'
 
-const Outdoor = () => {
-  const data = shopData.map((shopItem) => (
+const Featured = (shopItem) => {
+  console.log('SHOP ITEM IS:', shopItem)
+  return (
     <div className="outer-container">
-      <h6>{shopItem.value}</h6>
+      <h6>{shopItem.shopItem.value}</h6>
       <div>
-        <p className="outdoor">{shopItem.type}</p>
+        <p className="outdoor">{shopItem.shopItem.type}</p>
         <p className="shop-outdoor">SHOP</p>
       </div>
-      <img src={shopItem.image_url} alt="imageA" width="100%" height="550" />
+      <img
+        src={shopItem.shopItem.image_url}
+        alt="imageA"
+        width="100%"
+        height="550"
+      />
       <a className="img-indoor-shop-link" href="#img">
-        Shop {shopItem.type}
+        Shop {shopItem.shopItem.type}
       </a>
     </div>
-  ))
+  )
+}
+
+const Outdoor = () => {
   return (
     <>
-      <section className="section-2">{data}</section>
-      <div className="container">
-        <div className="popular-container">
-          <h2>Popular</h2>
-          <h5 className="h5">SHOP</h5>
-        </div>
-        <h4>Previous | Next</h4>
-      </div>
+      <section className="section-2">
+        {shopData.map((shopItem) => (
+          <Featured key={shopItem.id} shopItem={shopItem} />
+        ))}
+      </section>
     </>
   )
 }
