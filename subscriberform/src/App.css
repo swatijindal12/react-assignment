@@ -1,6 +1,9 @@
 .main-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
   margin: 100px auto;
   background-color: #fff;
-  width: 90%;
-  height: 650px;
+  max-width: 1000px;
+  height: auto;
 }
