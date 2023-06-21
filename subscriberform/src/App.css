@@ -7,3 +7,11 @@
   max-width: 1000px;
   height: auto;
 }
+
+@media screen and (max-width: 576px) {
+  .main-container {
+    display: flex;
+    height: 500px;
+    margin-top: 7.5rem;
+  }
+}
