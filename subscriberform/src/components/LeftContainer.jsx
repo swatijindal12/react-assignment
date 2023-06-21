@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import './Styles.css'
+import './LeftContainer.css'
 import Envelope from '../assets/envelope-solid.svg'
 import Lock from '../assets/lock-solid.svg'
 import Popup from './Popup'

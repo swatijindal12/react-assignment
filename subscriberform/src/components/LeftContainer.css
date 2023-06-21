@@ -1,0 +1,27 @@
+.left-container {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+.left-container p {
+  text-align: center;
+}
+
+.left-container a {
+  color: #7d2ae8;
+}
+
+button {
+  background-color: #7d2ae8;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  height: 40px;
+}
+
+@media screen and (max-width: 576px) {
+  .left-container {
+    width: 100%;
+  }
+}

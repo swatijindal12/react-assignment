@@ -1,6 +1,5 @@
-import React, { useState } from 'react'
-import './Styles.css'
-import Envelope from '../assets/envelope-solid.svg'
+import React from 'react'
+import './InputContainer.css'
 
 const InputContainer = ({
   imageSrc,
