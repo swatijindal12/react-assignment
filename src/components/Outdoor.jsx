@@ -3,7 +3,6 @@ import './Styles.css'
 import { shopData } from './shopData'
 
 const Featured = (shopItem) => {
-  console.log('SHOP ITEM IS:', shopItem)
   return (
     <div className="outer-container">
       <h6>{shopItem.shopItem.value}</h6>
@@ -15,7 +14,7 @@ const Featured = (shopItem) => {
         src={shopItem.shopItem.image_url}
         alt="imageA"
         width="100%"
-        height="550"
+        height="auto"
       />
       <a className="img-indoor-shop-link" href="#img">
         Shop {shopItem.shopItem.type}

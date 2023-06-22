@@ -8,7 +8,7 @@ const Product = (productItem) => {
       <img
         src={productItem.productItem.image_url}
         alt={productItem.productItem.product_name}
-        width="280"
+        width="100%"
         height="auto"
       />
       <div className="img-info">

@@ -8,7 +8,11 @@ const ProductHeader = () => {
         <h2>Popular</h2>
         <h5 className="h5">SHOP</h5>
       </div>
-      <h4>Previous | Next</h4>
+      <div className="prevNextAnchor">
+        <a>Previous </a>
+        <a>|</a>
+        <a> Next</a>
+      </div>
     </div>
   )
 }
