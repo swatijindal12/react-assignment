@@ -1,0 +1,41 @@
+.main {
+  min-height: 80vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.quotes {
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 2rem;
+  background-color: rgba(39, 48, 60, 0.5);
+  border-radius: 10px;
+  padding: 1rem;
+}
+
+.quotes img {
+  align-self: flex-start;
+}
+
+.quotes h2 {
+  margin-top: 0.5rem;
+  text-align: center;
+  font-style: italic;
+}
+
+.quotes .author {
+  align-self: flex-end;
+  margin-top: 0.2rem;
+}
+
+@media screen and (max-width: 576px) {
+  .quotes {
+    margin: 1rem;
+  }
+}
