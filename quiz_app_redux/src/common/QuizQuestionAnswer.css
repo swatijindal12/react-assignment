@@ -1,0 +1,27 @@
+.quiz-score-1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.quiz-score-1 h3 {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.quiz-score-1 p {
+  justify-content: flex-start;
+  align-items: flex-start;
+  font-size: medium;
+  font-style: normal;
+}
+
+.correct-ans {
+  color: green;
+}
+
+.user-response {
+  color: red;
+}
