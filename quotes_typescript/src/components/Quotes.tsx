@@ -6,7 +6,7 @@ import axios from 'axios'
 import { Quote } from './model'
 
 const Quotes: React.FC = () => {
-  const [isLoading, setIsLoading] = useState<boolean>(true)
+  const [isLoading, setIsLoading] = useState<boolean>(false)
   const [quotesData, setQuotesData] = useState<any[]>([])
   const [quote, setQuote] = useState<Quote>({ text: '', author: '' })
 
@@ -31,13 +31,12 @@ const Quotes: React.FC = () => {
       const { text, author } = quotesData[randomValue]
       setQuote({ text, author })
       setIsLoading(false)
-      console.log('Quote text is:', quote)
     }, 8000)
 
     return () => {
       clearInterval(interval)
     }
-  }, [quotesData, isLoading])
+  }, [quotesData])
 
   return (
     <div className="main">
