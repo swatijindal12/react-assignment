@@ -6,7 +6,6 @@ import { X } from 'react-feather'
 const AddCard = (props) => {
   const [showEdit, setShowEdit] = useState(false)
   const [inputValue, setInputValue] = useState('')
-  // console.log(props.className)
   return (
     <div className="addCard">
       {showEdit ? (

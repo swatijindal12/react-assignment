@@ -9,7 +9,7 @@
 
 .card_title {
   display: flex;
-  gap: 12rem;
+  gap: 8rem;
 }
 
 .card_title .card-edit-icon {

@@ -4,10 +4,10 @@ import EditIcon from '../assets/edit.png'
 import { Draggable } from 'react-beautiful-dnd'
 
 const Card = (card) => {
+  // console.log('card id are:', card)
   const [edit, setEdit] = useState(false)
   const [updatedTitle, setUpdatedTitle] = useState(card.card.title)
 
-  console.log('Cards are:', parseInt(card.card.id).toString())
   const handleEdit = () => {
     setEdit(true)
   }
@@ -27,9 +27,9 @@ const Card = (card) => {
       {(provided) => (
         <div
           className="card"
+          ref={provided.innerRef}
           {...provided.draggableProps}
           {...provided.dragHandleProps}
-          ref={provided.innerRef}
         >
           {edit ? (
             <form className="card_edit-mode" onSubmit={handleSubmitClick}>

@@ -8,19 +8,19 @@ import { DragDropContext } from 'react-beautiful-dnd'
 function App() {
   const [boardData, setBoardData] = useState([
     {
-      id: Date.now() + Math.random(),
+      id: parseInt(Date.now() + Math.random() * 10),
       title: 'To do',
       card: [
         {
-          id: Date.now() + Math.random() * 4,
+          id: parseInt(Date.now() + Math.random() * 4),
           title: 'Card 1',
         },
         {
-          id: Date.now() + Math.random() * 4,
+          id: parseInt(Date.now() + Math.random() * 4),
           title: 'Card 2',
         },
         {
-          id: Date.now() + Math.random() * 4,
+          id: parseInt(Date.now() + Math.random() * 4),
           title: 'Card 3',
         },
       ],
@@ -29,7 +29,7 @@ function App() {
 
   const addCard = (title, bid) => {
     const card = {
-      id: Date.now() + Math.random() * 4,
+      id: parseInt(Date.now() + Math.random() * 4),
       title,
     }
 
@@ -47,7 +47,7 @@ function App() {
     setBoardData([
       ...boardData,
       {
-        id: Date.now() + Math.random(),
+        id: parseInt(Date.now() + Math.random() * 10),
         title,
         card: [],
       },
@@ -65,17 +65,58 @@ function App() {
   }
 
   const onDragEnd = (result) => {
-    console.log('result are:', result)
+    const { source, destination } = result
+
+    if (!destination) {
+      return
+    }
+
+    if (
+      destination.droppableId === source.droppableId &&
+      destination.index === source.index
+    ) {
+      return
+    }
+
+    let updateBoardData = [...boardData]
+    let addData
+
+    if (source.droppableId === destination.droppableId) {
+      const boardIndex = updateBoardData.findIndex(
+        (item) => item.id === parseInt(source.droppableId),
+      )
+      addData = updateBoardData[boardIndex].card.splice(source.index, 1)[0]
+      updateBoardData[boardIndex].card.splice(destination.index, 0, addData)
+    } else {
+      const sourceBoardIndex = updateBoardData.findIndex(
+        (item) => item.id === parseInt(source.droppableId),
+      )
+      const destinationBoardIndex = updateBoardData.findIndex(
+        (item) => item.id === parseInt(destination.droppableId),
+      )
+      addData = updateBoardData[sourceBoardIndex].card.splice(
+        source.index,
+        1,
+      )[0]
+      updateBoardData[destinationBoardIndex].card.splice(
+        destination.index,
+        0,
+        addData,
+      )
+    }
+
+    setBoardData(updateBoardData)
   }
+
   return (
-    <DragDropContext onDragEnd={onDragEnd}>
-      <div className="App">
-        <Header />
-        <div className="outer-container">
+    <div className="App">
+      <Header />
+      <div className="outer-container">
+        <DragDropContext onDragEnd={onDragEnd}>
           <div className="card-row">
-            {boardData.map((item) => (
+            {boardData.map((item, index) => (
               <Board
-                key={item.id}
+                key={`${item.id}_${index}`}
                 board={item}
                 addCard={addCard}
                 updateCard={updateCard}
@@ -89,9 +130,9 @@ function App() {
               className="add_board_input"
             />
           </div>
-        </div>
+        </DragDropContext>
       </div>
-    </DragDropContext>
+    </div>
   )
 }
 

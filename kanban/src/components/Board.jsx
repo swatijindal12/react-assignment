@@ -23,18 +23,18 @@ const Board = (board) => {
           >
             {board.board.card.map((item, index) => (
               <Card
-                key={item.id}
+                key={item.id - index}
                 card={item}
                 updateCard={board.updateCard}
                 index={index}
               />
             ))}
+            {provided.placeholder}
 
             <AddCard
               onSubmit={(value) => board.addCard(value, board.board?.id)}
               className="add_card_input"
             />
-            {provided.placeholder}
           </div>
         )}
       </Droppable>
