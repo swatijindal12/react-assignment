@@ -1,0 +1,63 @@
+.addCard {
+  display: flex;
+}
+.add_card_add_board_input {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  margin-top: 3.5rem;
+  background-color: #f8f8f8;
+  width: 290px;
+  min-height: fit-content;
+}
+
+.add_card_add_board_input img {
+  width: 16px;
+  height: 16px;
+  margin-top: 1rem;
+}
+
+.add_card_input {
+  outline: none;
+  border-radius: 3px;
+  border: 1px solid black;
+  padding: 10px;
+  font-size: 0.7rem;
+}
+
+.add_form_add_board_input {
+  display: flex;
+  gap: 3rem;
+  padding-top: 4rem;
+  padding-bottom: 10px;
+}
+
+.add_form_add_card_input {
+  display: flex;
+  gap: 3rem;
+}
+/* .add_board_input {
+  background: #f8f8f8;
+  margin-top: 3.5rem;
+}
+
+.add_board_input ::placeholder {
+  color: black;
+} */
+
+.add_card_add_card_input {
+  padding: 0rem;
+  margin-top: 0rem;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  background-color: #f8f8f8;
+  width: 290px;
+  min-height: fit-content;
+}
+
+.add_card_add_card_input img {
+  width: 16px;
+  height: 16px;
+  margin-top: 1rem;
+}

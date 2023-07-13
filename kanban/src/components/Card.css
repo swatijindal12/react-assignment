@@ -1,0 +1,39 @@
+.card {
+  padding: 0px 10px;
+  border-radius: 5px;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.card_title {
+  display: flex;
+  gap: 12rem;
+}
+
+.card_title .card-edit-icon {
+  opacity: 0;
+}
+
+.card_title:hover {
+  background-color: #e4e3e3;
+}
+
+.card_title:hover .card-edit-icon {
+  width: 20px;
+  height: 20px;
+  margin-top: 1rem;
+  opacity: 1;
+  /* margin-right: 0rem; */
+}
+
+.card_input {
+  padding: 10px 0px;
+  font-size: 1rem;
+  border: none;
+}
+
+.card_input:focus {
+  outline: none;
+}

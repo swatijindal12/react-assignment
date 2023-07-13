@@ -1,0 +1,37 @@
+.board {
+  min-width: 290px;
+  max-height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background-color: #f8f8f8;
+  padding: 0rem 1.5rem;
+  margin-top: 4rem;
+}
+
+.board-header {
+  display: flex;
+}
+
+.board-title {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  color: rgb(40, 154, 199);
+}
+
+.board-more-icon {
+  width: 25px;
+  height: 25px;
+  margin-top: 0.7rem;
+  align-items: center;
+}
+
+.boards_card {
+  background-color: #f8f8f8;
+  display: flex;
+  flex-direction: column;
+  margin-top: -1rem;
+  gap: 10px;
+}
