@@ -1,46 +1,47 @@
 import './App.css'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Header from './components/Header'
 import Board from './components/Board'
 import AddCard from './components/common/AddCard'
-import { DragDropContext } from 'react-beautiful-dnd'
-// import { boards } from './utils/data'
+import { DragDropContext, DropResult } from 'react-beautiful-dnd'
+import { BoardModel, CardModel } from './utils/model'
+import { boards } from './utils/data'
 
 function App() {
-  const [boardData, setBoardData] = useState([])
+  const [boardData, setBoardData] = useState<BoardModel[]>([])
 
-  // useEffect(() => {
-  //   setBoardData(boards)
+  useEffect(() => {
+    setBoardData(boards)
 
-  //   return () => {}
-  // }, [])
+    return () => {}
+  }, [])
 
-  const addCard = (title, bid) => {
-    const card = {
-      id: parseInt(Date.now() + Math.random() * 4),
+  const addCard = (title: string, bid: number) => {
+    const card: CardModel = {
+      id: Date.now() + Math.random() * 4,
       title,
     }
 
     const index = boardData.findIndex((item) => item.id === bid)
     if (index < 0) return
 
-    const tempBoard = [...boardData]
-    tempBoard[index].card.push(card)
-    setBoardData(tempBoard)
+    const boardTemp = [...boardData]
+    boardTemp[index].card.push(card)
+    setBoardData(boardTemp)
   }
 
-  const addBoard = (title) => {
+  const addBoard = (title: string) => {
     setBoardData([
       ...boardData,
       {
-        id: parseInt(Date.now() + Math.random() * 10),
+        id: Date.now() + Math.random() * 10,
         title,
         card: [],
       },
     ])
   }
 
-  const updateCard = (updatedCard) => {
+  const updateCard = (updatedCard: CardModel) => {
     const updatedBoardData = boardData.map((board) => {
       const updatedCardList = board.card.map((card) =>
         card.id === updatedCard.id ? updatedCard : card,
@@ -50,7 +51,7 @@ function App() {
     setBoardData(updatedBoardData)
   }
 
-  const onDragEnd = (result) => {
+  const onDragEnd = (result: DropResult) => {
     const { source, destination } = result
 
     // Check if a valid drop destination exists
@@ -74,9 +75,9 @@ function App() {
     )
 
     if (sourceBoard && destinationBoard) {
-      const draggedCard = sourceBoard.card[source.index]
+      const cardDrag = sourceBoard.card[source.index]
       sourceBoard.card.splice(source.index, 1)
-      destinationBoard.card.splice(destination.index, 0, draggedCard)
+      destinationBoard.card.splice(destination.index, 0, cardDrag)
     }
 
     setBoardData(updatedBoardData)
@@ -100,7 +101,7 @@ function App() {
             <AddCard
               text="Add another list"
               placeholder="Add another list"
-              onSubmit={(value) => addBoard(value)}
+              onSubmit={(value: any) => addBoard(value)}
               className="add_board_input"
             />
           </div>

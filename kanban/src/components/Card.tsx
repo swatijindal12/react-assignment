@@ -1,29 +1,35 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import './Card.css'
 import EditIcon from '../assets/edit.png'
 import { Draggable } from 'react-beautiful-dnd'
+import { CardModel } from '../utils/model'
 
-const Card = (card) => {
-  console.log('card id are:', card)
+interface CardProps {
+  card: CardModel
+  updateCard: (updatedCard: CardModel) => void
+  index: number
+}
+
+const Card = ({ card, updateCard, index }: CardProps) => {
   const [edit, setEdit] = useState(false)
-  const [updatedTitle, setUpdatedTitle] = useState(card.card.title)
+  const [updatedTitle, setUpdatedTitle] = useState(card.title)
 
   const handleEdit = () => {
     setEdit(true)
   }
 
-  const handleSubmitClick = () => {
-    const updatedCard = {
-      ...card.card,
+  const handleSubmit = () => {
+    const updatedCard: CardModel = {
+      ...card,
       title: updatedTitle,
     }
-    card.updateCard(updatedCard)
+    updateCard(updatedCard)
 
     setEdit(false)
   }
 
   return (
-    <Draggable draggableId={card.card.id.toString()} index={card.index}>
+    <Draggable draggableId={card.id.toString()} index={index}>
       {(provided) => (
         <div
           className="card"
@@ -32,7 +38,7 @@ const Card = (card) => {
           {...provided.dragHandleProps}
         >
           {edit ? (
-            <form className="card_edit-mode" onSubmit={handleSubmitClick}>
+            <form className="card_edit-mode" onSubmit={handleSubmit}>
               <input
                 className="card_input"
                 value={updatedTitle}
@@ -43,7 +49,7 @@ const Card = (card) => {
             </form>
           ) : (
             <div className="card_title">
-              <p style={{ fontSize: '1rem' }}>{card.card.title}</p>
+              <p style={{ fontSize: '1rem' }}>{card.title}</p>
               <span>
                 <img
                   src={EditIcon}
