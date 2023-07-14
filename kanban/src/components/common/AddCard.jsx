@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import Plus from '../assets/plus.png'
+import Plus from '../../assets/plus.png'
 import './AddCard.css'
 import { X } from 'react-feather'
 

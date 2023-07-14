@@ -4,7 +4,7 @@ import EditIcon from '../assets/edit.png'
 import { Draggable } from 'react-beautiful-dnd'
 
 const Card = (card) => {
-  // console.log('card id are:', card)
+  console.log('card id are:', card)
   const [edit, setEdit] = useState(false)
   const [updatedTitle, setUpdatedTitle] = useState(card.card.title)
 

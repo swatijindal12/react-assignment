@@ -2,28 +2,29 @@ import React from 'react'
 import './Board.css'
 import More from '../assets/ellipsis.png'
 import Card from './Card'
-import AddCard from './AddCard'
+import AddCard from './common/AddCard'
 import { Droppable } from 'react-beautiful-dnd'
 
 const Board = (board) => {
+  console.log('board are: ', board)
   return (
-    <div className="board">
-      <div className="board-header">
-        <p className="board-title">{board.board.title}</p>
-        <span>
-          <img src={More} alt="More-icon" className="board-more-icon" />
-        </span>
-      </div>
-      <Droppable droppableId={board.board.id.toString()}>
-        {(provided) => (
-          <div
-            className="boards_card"
-            ref={provided.innerRef}
-            {...provided.droppableProps}
-          >
+    <Droppable droppableId={board.board.id.toString()}>
+      {(provided) => (
+        <div
+          className="board"
+          ref={provided.innerRef}
+          {...provided.droppableProps}
+        >
+          <div className="board-header">
+            <p className="board-title">{board.board.title}</p>
+            <span>
+              <img src={More} alt="More-icon" className="board-more-icon" />
+            </span>
+          </div>
+          <div className="boards_card">
             {board.board.card.map((item, index) => (
               <Card
-                key={item.id - index}
+                key={item.id}
                 card={item}
                 updateCard={board.updateCard}
                 index={index}
@@ -36,9 +37,9 @@ const Board = (board) => {
               className="add_card_input"
             />
           </div>
-        )}
-      </Droppable>
-    </div>
+        </div>
+      )}
+    </Droppable>
   )
 }
 
