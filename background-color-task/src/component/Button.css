@@ -72,6 +72,20 @@
   color: #fff;
 }
 
+.share-button {
+  text-align: center;
+  width: 15rem;
+  height: 2.5rem;
+  margin-left: 25rem;
+  font-size: 1rem;
+  color: #000cff;
+  border: none;
+}
+
+.share-button:hover {
+  background-color: purple;
+  color: #fff;
+}
 @media screen and (max-width: 1200px) {
   .button-tag {
     margin-left: 0rem;

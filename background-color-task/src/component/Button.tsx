@@ -76,7 +76,7 @@ const Button = () => {
         >
           Download
         </button>
-        <button className="download-button">Share</button>
+        <button className="share-button">Share</button>
       </div>
     </div>
   )
