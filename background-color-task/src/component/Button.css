@@ -1,0 +1,87 @@
+.button-tag {
+  display: flex;
+  gap: 1rem;
+  text-align: center;
+  justify-content: space-between;
+  margin-left: 10rem;
+}
+
+.text-button {
+  width: 5rem;
+  height: 2rem;
+  border-color: #000cff;
+  background: transparent;
+  border-radius: 5px;
+  color: #000cff;
+}
+
+.text-button:hover {
+  color: #fff;
+  background-color: #000cff;
+}
+
+.image {
+  display: flex;
+  margin-top: 4rem;
+  margin-left: 10rem;
+}
+
+.color-box {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.color-box {
+  display: flex;
+  flex-grow: 1;
+  flex-wrap: wrap;
+  gap: 5px;
+  justify-content: flex-end;
+}
+
+.color-swatch {
+  width: 30px;
+  height: 30px;
+  border: none;
+}
+
+.selected {
+  border: 2px solid #000cff;
+}
+
+.button-class {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.download-button {
+  text-align: center;
+  width: 15rem;
+  height: 2.5rem;
+  margin-left: 25rem;
+  margin-top: 1.5rem;
+  font-size: 1rem;
+  color: #000cff;
+  border: none;
+}
+
+.download-button:hover {
+  background-color: purple;
+  color: #fff;
+}
+
+@media screen and (max-width: 1200px) {
+  .button-tag {
+    margin-left: 0rem;
+  }
+
+  .image {
+    margin-left: 0rem;
+  }
+
+  .download-button {
+    margin-left: 15rem;
+  }
+}
