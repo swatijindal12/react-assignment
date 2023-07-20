@@ -1,12 +1,14 @@
 import React from 'react'
 import './RightContainer.css'
+import { useTranslation } from 'react-i18next'
 
 const RightContainer = () => {
+  const { t } = useTranslation()
   return (
     <div className="right-container">
-      <p>Every new friend is a</p>
-      <p>new adventure</p>
-      <h6>Join Us</h6>
+      <p>{t('everyFriend')}</p>
+      <p>{t('newAdventure')}</p>
+      <h6>{t('joinUs')}</h6>
     </div>
   )
 }

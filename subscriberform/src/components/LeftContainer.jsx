@@ -6,8 +6,11 @@ import Popup from './Popup'
 import InputContainer from './InputContainer'
 import Header from './Header'
 import validator from 'validator'
+import { useTranslation } from 'react-i18next'
 
 const LeftContainer = () => {
+  const { t } = useTranslation()
+
   const [mail, setMail] = useState('')
   const [password, setPassword] = useState('')
   const [retypePassword, setretypePassword] = useState('')
@@ -40,7 +43,7 @@ const LeftContainer = () => {
           imageSrc={Envelope}
           altText="email"
           inputType="email"
-          placeholder="Enter your email"
+          placeholder={t('email')} //"Enter your email"
           value={mail}
           onChange={(e) => setMail(e.target.value)}
           required
@@ -50,7 +53,7 @@ const LeftContainer = () => {
           imageSrc={Lock}
           altText="password"
           inputType="password"
-          placeholder="Enter your password"
+          placeholder={t('password')}
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
@@ -59,16 +62,16 @@ const LeftContainer = () => {
           imageSrc={Lock}
           altText="password"
           inputType="password"
-          placeholder="Retype your password"
+          placeholder={t('retypePassword')}
           value={retypePassword}
           onChange={(e) => setretypePassword(e.target.value)}
           required
         />
 
-        <button onClick={handleClick}>Join</button>
+        <button onClick={handleClick}>{t('join')}</button>
         <p>
-          Already have an account?
-          <a href="#login">Login</a>
+          {t('alreadyAccount')}
+          <a href="#login">{t('login')}</a>
         </p>
       </div>
       {showPopup && (
