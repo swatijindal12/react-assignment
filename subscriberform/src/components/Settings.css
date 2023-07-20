@@ -5,6 +5,12 @@
   left: 0;
 }
 
+.settings-div {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
 .language-options {
   position: relative;
   display: inline-flex;
@@ -17,6 +23,7 @@ ul.ul-lang {
   padding: 0;
   position: absolute;
   top: 0;
+  right: 0;
   background-color: #fff;
   border: 1px solid #ccc;
   border-radius: 5px;
