@@ -1,85 +1,51 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import './Settings.css'
 import i18next from 'i18next'
 import { languages } from '../model/languages'
+import SettingsIcon from '../assets/icons8-settings.svg'
 
 const Settings = () => {
   const { t } = useTranslation()
+  const [showLangOption, setShowLangOption] = useState(false)
+  const [selectedLanguage, setSelectedLanguage] = useState('')
 
-  const handleLanguageChange = (event) => {
-    const selectedLanguage = event.target.value
-    i18next.changeLanguage(selectedLanguage)
+  const handleLanguageChange = (languageCode) => {
+    i18next.changeLanguage(languageCode)
+    setSelectedLanguage(languageCode)
+    setShowLangOption(false)
   }
 
   return (
     <div className="settings-div">
       <div className="language-options">
-        <select onChange={handleLanguageChange}>
-          {languages.map((language) => (
-            <option key={language.code} value={language.code}>
-              {t(language.name)}
-            </option>
-          ))}
-        </select>
+        {showLangOption ? (
+          <ul className="ul-lang open">
+            {languages.map((language) => (
+              <li
+                key={language.code}
+                onClick={() => handleLanguageChange(language.code)}
+                className={selectedLanguage === language.code ? 'selected' : ''}
+              >
+                <img src={language.flag_image} width="24px" height="24px" />
+                {t(language.name)}
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <img
+            src={SettingsIcon}
+            onClick={() => {
+              setShowLangOption(true)
+            }}
+            width="24px"
+            height="24px"
+            className='setting-img'
+          />
+        )}
       </div>
     </div>
   )
 }
 
 export default Settings
-
-// import React from 'react'
-// import { useTranslation } from 'react-i18next'
-// import './Settings.css'
-// import i18n from 'i18next'
-// // import 'flag-icon-css/css/flag-icon.min.css'
-
-// const languages = [
-//   {
-//     code: 'fr',
-//     name: 'Français',
-//     country_code: 'fr',
-//   },
-//   {
-//     code: 'en',
-//     name: 'English',
-//     country_code: 'gb',
-//   },
-//   {
-//     code: 'ar',
-//     name: 'العربية',
-//     dir: 'rtl',
-//     country_code: 'sa',
-//   },
-// ]
-
-// const Settings = () => {
-//   const { t } = useTranslation()
-
-//   const handleLanguageChange = (event) => {
-//     const selectedLanguage = event.target.value
-//     i18n.changeLanguage(selectedLanguage)
-//   }
-
-//   return (
-//     <div className="settings-div">
-//       <div className="language-options">
-//         <select onChange={handleLanguageChange}>
-//           <option
-//             value="en"
-//             onClick={() => {
-//               i18n.changeLanguage(code)
-//             }}
-//           >
-//             <span className={`flag-icon flag-icon-en mx-2`}></span>
-//             {t('english')}
-//           </option>
-//           <option value="es">{t('spanish')}</option>
-//         </select>
-//       </div>
-//     </div>
-//   )
-// }
-
-// export default Settings
