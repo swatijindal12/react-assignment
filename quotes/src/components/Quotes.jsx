@@ -3,7 +3,7 @@ import './Quotes.css'
 import loader from '../assets/icons8-spinner-50.png'
 import doubleQuotes from '../assets/icons8-double-quotes-30.png'
 import LoaderContainer from './LoaderContainer'
-import axios from 'axios'
+import { fetchQuotes } from '../api'
 
 const Quotes = () => {
   const [isLoading, setIsLoading] = useState(true)
@@ -11,17 +11,15 @@ const Quotes = () => {
   const [quote, setQuote] = useState({ text: '', author: '' })
 
   useEffect(() => {
-    const fetchQuotes = async () => {
+    const fetchData = async () => {
       try {
-        const res = await axios.get('https://type.fit/api/quotes')
-        const quotesData = res.data
+        const quotesData = await fetchQuotes()
         setQuotesData(quotesData)
       } catch (error) {
         console.error('Error fetching quotes:', error)
       }
     }
-
-    fetchQuotes()
+    fetchData()
   }, [])
 
   useEffect(() => {
@@ -31,8 +29,7 @@ const Quotes = () => {
       const { text, author } = quotesData[randomValue]
       setQuote({ text, author })
       setIsLoading(false)
-      console.log('Quote text is:', quote)
-    }, 8000)
+    }, 2000)
 
     return () => {
       clearInterval(interval)
@@ -43,13 +40,13 @@ const Quotes = () => {
     <div className="main">
       {isLoading ? (
         <>
-          <div className="spin-loader"></div>
+          <div className="spin-loader" data-testid={'spin-loader'}></div>
         </>
       ) : (
         <div className="quotes">
           {' '}
           <img src={doubleQuotes} alt="Double-quotes" />
-          <h2>{quote.text}</h2>
+          <h2 data-testid={'quote-text'}>{quote.text}</h2>
           <p className="author">{quote.author}</p>
           <LoaderContainer />
         </div>
