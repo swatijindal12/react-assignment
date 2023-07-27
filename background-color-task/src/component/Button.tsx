@@ -49,6 +49,7 @@ const Button = () => {
               }`}
               style={{ backgroundColor: color }}
               onClick={() => handleColorClick(color)}
+              data-testid={`color-button-${color}`}
             ></button>
           ))}
         </div>
@@ -62,9 +63,10 @@ const Button = () => {
               background: selectedColor,
               width: '650px',
             }}
+            alt="After-Image"
           />
         ) : (
-          <img src={BeforeImage} />
+          <img src={BeforeImage} alt="Before-Image" />
         )}{' '}
       </div>
       <div className="button-class">
